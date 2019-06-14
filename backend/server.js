@@ -23,6 +23,7 @@ MongoClient.connect(url, (err, allDbs) => {
 });
 app.post("/signup", upload.none(), (req, res) => {
   let username = req.body.username;
+  let email = req.body.email;
   let enteredPassword = req.body.password;
   let firstName = req.body.firstName;
   let lastName = req.body.lastName;
@@ -33,6 +34,7 @@ app.post("/signup", upload.none(), (req, res) => {
       let sessionId = generateId();
       db.collection("sessions").insertOne({
         sessionId,
+        email,
         username,
         firstName,
         lastName,
@@ -41,6 +43,7 @@ app.post("/signup", upload.none(), (req, res) => {
       db.collection("users").insert({
         firstName: firstName,
         lastName: lastName,
+        email: email,
         user: username,
         password: enteredPassword,
         age: age

@@ -7,6 +7,7 @@ class UnconnectedSignup extends Component {
     super(props);
     this.state = {
       username: "",
+      email: "",
       password: "",
       firstName: "",
       lastName: "",
@@ -15,6 +16,9 @@ class UnconnectedSignup extends Component {
   }
   handleUsernameChange = event => {
     this.setState({ username: event.target.value });
+  };
+  handleEmailChange = event => {
+    this.setState({ email: event.target.value });
   };
   handleFirstNameChange = event => {
     this.setState({ firstName: event.target.value });
@@ -32,12 +36,18 @@ class UnconnectedSignup extends Component {
     evt.preventDefault();
     let data = new FormData();
     data.append("username", this.state.username);
+    data.append("email", this.state.email);
+    console.log("email", this.state.email);
     data.append("password", this.state.password);
     data.append("firstName", this.state.firstName);
     data.append("lastName", this.state.lastName);
     data.append("age", this.state.age);
     if (this.state.firstName === "") {
       alert("please enter your first name");
+      return;
+    }
+    if (this.state.email === "") {
+      alert("please enter your email address");
       return;
     }
     if (this.state.lastName === "") {
@@ -73,6 +83,7 @@ class UnconnectedSignup extends Component {
         this.props.dispatch({
           type: "login-success",
           username: this.state.username,
+          email: this.state.email,
           firstName: this.state.firstName,
           lastName: this.state.lastName,
           age: this.state.age
@@ -103,6 +114,12 @@ class UnconnectedSignup extends Component {
             type="text"
             onChange={this.handleUsernameChange}
             placeholder="Username"
+          />
+          <input
+            className="pass"
+            type="text"
+            onChange={this.handleEmailChange}
+            placeholder="Email"
           />
           <input
             className="pass"

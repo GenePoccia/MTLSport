@@ -6,6 +6,7 @@ let reducer = (state, action) => {
       ...state,
       loggedIn: true,
       username: action.username,
+      email: action.email,
       firstName: action.firstName,
       lastName: action.lastName,
       age: action.age
