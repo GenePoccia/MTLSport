@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 class UnconnectedFilterLocation extends Component {
   handleLocationChange = evt => {
     evt.preventDefault();
-    console.log(event.target.value);
     let val = event.target.value;
     if (val === "undefined") val = undefined;
 

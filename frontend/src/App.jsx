@@ -42,12 +42,8 @@ class UnconnectedApp extends Component {
     fetch("http://localhost:4000/check-login", { credentials: "include" })
       .then(x => x.text())
       .then(responseBody => {
-        console.log("responsebody", responseBody);
         let body = JSON.parse(responseBody);
-        console.log("body", body);
         if (body.success) {
-          console.log("dispatching");
-          console.log("firstname", body.results.firstName);
           this.props.dispatch({
             type: "login-success",
             username: body.results.username,

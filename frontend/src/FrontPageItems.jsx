@@ -13,12 +13,10 @@ class UnconnectedFrontPageItems extends Component {
     //let messages = this.props.threads.reverse();
     let messages = [];
     this.props.threads.forEach(ele => messages.unshift(ele));
-    console.log("messages: ", messages);
     let threadTitles = [];
 
     let i = 0;
     while (threadTitles.length < 5 && i < messages.length) {
-      console.log("message category: ", messages[i].category);
       if (
         messages[i].category === "sellBasketball" ||
         messages[i].category === "sellHockey" ||
@@ -32,7 +30,6 @@ class UnconnectedFrontPageItems extends Component {
       i++;
     }
 
-    console.log("threadTitles: ", threadTitles);
     let titles = threadTitles.map(ele => {
       let linkTo = "/" + ele.category + "/" + ele._id;
 

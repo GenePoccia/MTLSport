@@ -21,7 +21,6 @@ class UnconnectedThread extends Component {
   deleteMessage = () => {
     let data = new FormData();
     data.append("threadId", this.props.path);
-    console.log("thread", this.props.threads);
     fetch("http://localhost:4000/delete-message", {
       method: "POST",
       body: data,
@@ -76,7 +75,6 @@ class UnconnectedThread extends Component {
       };
     }
 
-    console.log("undefined here because?: ", threads[0]);
     return (
       <div className="style-replies">
         <h2 className="thread-title-display">

@@ -15,9 +15,6 @@ class UnconnectedBasketball extends Component {
     }
   };
   render = () => {
-    console.log("undefined test: ", this.props.location);
-
-    console.log(this.props.threads);
     let messages = this.props.threads
       .filter(ele => {
         return ele.category === "basketball";

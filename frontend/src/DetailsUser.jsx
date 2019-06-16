@@ -14,15 +14,12 @@ export default class UnconnectedDetailsUser extends Component {
       .then(responseBody => {
         let body = JSON.parse(responseBody);
         let details = body.results.filter(ele => {
-          console.log("comparaison", ele.user, this.props.username);
           return ele.user === this.props.username;
         });
-        console.log("detailsUser", details);
         this.setState({ details });
       });
   };
   render = () => {
-    console.log("state", this.state);
     return (
       <div className="userdetails">
         <img

@@ -9,18 +9,14 @@ class UnconnectedFrontPageThreads extends Component {
 
   render = () => {
     if (this.props.threads.length === 0) return "loading";
-    console.log(this.props.threads);
     //let messages = this.props.threads.reverse();
     let messages = [];
     this.props.threads.forEach(ele => messages.unshift(ele));
-    console.log("messages: ", messages);
     let threadTitles = [];
 
     let i = 0;
     while (threadTitles.length < 5 && i < messages.length) {
       //for (let i = 0; /*i < 5 &&*/ i < this.props.threads.length; i++) {
-      console.log("i =", i);
-      console.log("messages[i] category: ", messages[i].category);
       if (
         messages[i].category === "basketball" ||
         messages[i].category === "hockey" ||
@@ -33,12 +29,9 @@ class UnconnectedFrontPageThreads extends Component {
       }
 
       let theTitle = messages[i].threadTitle.toString();
-      console.log("title is: ", theTitle);
-      console.log("title length: ", theTitle.length);
 
       if (theTitle.length > 25) {
         let newTitle = theTitle.slice(0, 25) + "...";
-        console.log("new title: ", newTitle);
         messages[i].shortThreadTitle = newTitle;
       } else {
         messages[i].shortThreadTitle = messages[i].threadTitle;
@@ -55,8 +48,6 @@ class UnconnectedFrontPageThreads extends Component {
       if (x === "tennis") return "Tennis";
       if (x === "misc") return "Misc.";
     };
-
-    console.log("thread titles = ", threadTitles);
 
     let titles = threadTitles.map(ele => {
       let linkTo = "/" + ele.category + "/" + ele._id;

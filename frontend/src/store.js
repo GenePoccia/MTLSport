@@ -19,7 +19,6 @@ let reducer = (state, action) => {
     return { ...state, loggedIn: false };
   }
   if (action.type === "set-newThread") {
-    console.log("new thread in store.js : ", action.newThread);
     return { ...state, newThread: [] };
   }
   if (action.type === "show-form") {

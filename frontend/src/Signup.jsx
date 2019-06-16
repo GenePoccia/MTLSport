@@ -37,7 +37,7 @@ class UnconnectedSignup extends Component {
     let data = new FormData();
     data.append("username", this.state.username);
     data.append("email", this.state.email);
-    console.log("email", this.state.email);
+
     data.append("password", this.state.password);
     data.append("firstName", this.state.firstName);
     data.append("lastName", this.state.lastName);
@@ -133,7 +133,7 @@ class UnconnectedSignup extends Component {
             onChange={this.handleAgeChange}
             placeholder="How old are you?"
           />
-          <input className="submit" type="submit" />
+          <input id="send_email" type="submit" />
         </form>
       </div>
     );

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import SellModal from "./SellModal.jsx";
 class UnconnectedSellBasketball extends Component {
   render = () => {
-    console.log("in sell basketball");
     let messages = this.props.threads
       .filter(ele => {
         return ele.category === "sellBasketball";
